@@ -5,7 +5,6 @@ import Zombie from '../Zombie';
 import Team from '../Team';
 
 test('test Set function', () => {
-  const personBowerman = new Bowerman('Jack');
   const personDaemon = new Daemon('London');
   const personZombie = new Zombie('Victor');
 
