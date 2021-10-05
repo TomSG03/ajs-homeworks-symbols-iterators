@@ -4,12 +4,22 @@ import Zombie from '../Zombie';
 
 import Team from '../Team';
 
-// test.each([
-//   ['Egorov-007s', true],
-// ])(
-//   'Check valid name',
-//   (name, expected) => {
-//     const check = new Validator();
-//     expect(check.validateUsername(name)).toBe(expected);
-//   },
-// );
+test('test Set function', () => {
+  const personBowerman = new Bowerman('Jack');
+  const personDaemon = new Daemon('London');
+  const personZombie = new Zombie('Victor');
+
+  const round = new Team();
+
+  round.addAll(personDaemon, personZombie, personZombie);
+
+  expect(round.toArray()).toEqual([personDaemon, personZombie]);
+});
+
+test('test Set function throw error', () => {
+  const personBowerman = new Bowerman('Jack');
+  const round = new Team();
+
+  round.add(personBowerman);
+  expect(() => round.add(personBowerman)).toThrow('Такой персонаж уже выбран');
+});
