@@ -19,4 +19,19 @@ export default class Team {
   toArray() {
     return [...this.members];
   }
+
+  [Symbol.iterator]() {
+    const values = this.toArray();
+    let index = -1;
+
+    return {
+      next() {
+        index += 1;
+        return {
+          value: values[index],
+          done: index >= values.length,
+        };
+      },
+    };
+  }
 }
